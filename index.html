@@ -8,31 +8,30 @@
 :root{--bg:#fefcf8;--gold:#b8860b;--border:#e8e2d5;--dark:#2c2c2c}
 *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark)}
 #gate{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:9999}
-.gate-box{background:#fff;padding:50px 40px;border:1px solid var(--border);text-align:center;width:90%;max-width:380px;box-shadow:0 10px 40px rgba(0,0,0,.05)}
+.gate-box{background:#fff;padding:50px 40px;border:1px solid var(--border);text-align:center;width:90%;max-width:380px}
 .gate-box h2{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--gold);margin-bottom:8px}
-.gate-box input{width:100%;padding:14px;border:1px solid var(--border);text-align:center;font-size:16px;margin:15px 0;outline:none}
-.gate-box button{width:100%;padding:14px;background:var(--gold);color:#fff;border:none;cursor:pointer;font-weight:500}
+.gate-box input{width:100%;padding:14px;border:1px solid var(--border);text-align:center;font-size:16px;margin:15px 0}
+.gate-box button{width:100%;padding:14px;background:var(--gold);color:#fff;border:none;cursor:pointer}
 #main{display:none}.container{max-width:1100px;margin:0 auto;padding:70px 20px;text-align:center}
 .arabic{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--gold)}
-.main-title{font-family:'Cormorant Garamond',serif;font-size:3.8rem;font-weight:700;letter-spacing:1px}
+.main-title{font-family:'Cormorant Garamond',serif;font-size:3.8rem;font-weight:700}
 .gold-line{width:80px;height:2px;background:var(--gold);margin:20px auto}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px;margin-top:60px}
 .card{background:#fff;border:1px solid var(--border);cursor:pointer;transition:.2s;overflow:hidden}
 .card:hover{transform:translateY(-4px);box-shadow:0 10px 20px rgba(0,0,0,.06)}
 .card img{width:100%;height:200px;object-fit:cover;background:#f5f5f5}
-.card-info{padding:20px}.card-info h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold)}
-.card-info p{color:#999;font-size:13px}
+.card-info{padding:20px}.card-info h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold)}.card-info p{color:#999;font-size:13px}
 #gallery{position:fixed;inset:0;background:var(--bg);z-index:10000;display:none;overflow-y:auto}
 .gal-head{position:sticky;top:0;background:var(--bg);padding:20px 30px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;z-index:10}
 .gal-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold)}
-.gal-actions{display:flex;gap:10px}.upload-btn{background:var(--gold);color:#fff;border:none;padding:10px 18px;cursor:pointer;border-radius:4px}.close-btn{background:#666;color:#fff;border:none;padding:10px 18px;cursor:pointer;border-radius:4px}
+.upload-btn{background:var(--gold);color:#fff;border:none;padding:10px 18px;cursor:pointer;border-radius:4px}.close-btn{background:#666;color:#fff;border:none;padding:10px 18px;cursor:pointer;border-radius:4px}
 .sub-nav{display:none;padding:15px 30px;background:#f9f7f3;border-bottom:1px solid var(--border);gap:10px;flex-wrap:wrap;position:sticky;top:73px;z-index:9}
-.sub-nav button{padding:8px 18px;border:1px solid #d4c8b5;background:#fff;cursor:pointer;border-radius:20px;font-size:13px}
-.sub-nav button.active{background:var(--gold);color:#fff;border-color:var(--gold)}
-.gal-grid{padding:30px;max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:15px}
-.gal-grid img,.gal-grid video{width:100%;height:250px;object-fit:cover;border:1px solid var(--border);cursor:pointer;background:#000}
-.gal-grid video{background:#000}
-.empty-state{grid-column:1/-1;text-align:center;padding:80px;color:#999}
+.sub-nav button{padding:8px 18px;border:1px solid #d4c8b5;background:#fff;cursor:pointer;border-radius:20px;font-size:13px}.sub-nav button.active{background:var(--gold);color:#fff;border-color:var(--gold)}
+.gal-content{padding:30px;max-width:1400px;margin:0 auto}
+.media-section{margin-bottom:50px}.media-section h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold);margin-bottom:15px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:15px}
+.media-grid img,.media-grid video{width:100%;height:250px;object-fit:cover;border:1px solid var(--border);cursor:pointer;background:#000}
+.empty-media{color:#999;font-style:italic;padding:20px;text-align:center;background:#f9f7f3;border-radius:6px}
 .pro-upload-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);z-index:20000;display:none;align-items:center;justify-content:center;padding:20px}
 .pro-upload-box{background:#fff;width:100%;max-width:620px;border-radius:12px;overflow:hidden}
 .pro-upload-header{padding:24px 30px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between}
@@ -43,10 +42,8 @@
 .pro-file-list{padding:0 30px 20px;max-height:240px;overflow-y:auto}
 .pro-file-item{display:flex;align-items:center;padding:12px;background:#f9f7f3;margin-bottom:8px;border-radius:6px}
 .pro-file-icon{width:40px;height:40px;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;border-radius:4px;margin-right:12px}
-.pro-file-info{flex:1}.pro-file-name{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.pro-file-size{font-size:12px;color:#999}
-.pro-progress{height:4px;background:#e8e2d5;border-radius:2px;margin-top:6px;overflow:hidden}.pro-progress-bar{height:100%;background:var(--gold);width:0%}
 .pro-upload-footer{padding:20px 30px;background:#f9f7f3;display:flex;justify-content:space-between}
-.pro-btn{padding:12px 24px;border:none;border-radius:6px;font-weight:500;cursor:pointer}
+.pro-btn{padding:12px 24px;border:none;border-radius:6px;cursor:pointer}
 .pro-btn-cancel{background:#fff;border:1px solid #ddd}.pro-btn-upload{background:var(--gold);color:#fff}.pro-btn-upload:disabled{opacity:.5}
 </style>
 </head>
@@ -56,55 +53,86 @@
 <div id="main"><div class="container">
 <div class="arabic">عائلة العيار</div><h1 class="main-title">AL-AYYAR FAMILY</h1><div class="gold-line"></div>
 <div class="grid">
-<div class="card" onclick="openGallery('parents')"><img src="parents-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300?text=Faisal+Amal'"><div class="card-info"><h3>Faisal & Amal</h3><p>Founders</p></div></div>
-<div class="card" onclick="openGallery('baida')"><img src="baida-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300?text=Baida'"><div class="card-info"><h3>Baida</h3><p>Born → Motherhood</p></div></div>
-<div class="card" onclick="openGallery('mubarak')"><img src="mubarak-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300?text=Mubarak'"><div class="card-info"><h3>Mubarak</h3><p>Born → Fatherhood</p></div></div>
+<div class="card" onclick="openGallery('parents')"><img src="parents-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300?text=Parents'"><div class="card-info"><h3>Faisal & Amal</h3><p>Parents</p></div></div>
+<div class="card" onclick="openGallery('baida')"><img src="baida-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300?text=Baida'"><div class="card-info"><h3>Baida</h3><p>Born to Motherhood</p></div></div>
+<div class="card" onclick="openGallery('mubarak')"><img src="mubarak-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300?text=Mubarak'"><div class="card-info"><h3>Mubarak</h3><p>Born to Fatherhood</p></div></div>
 <div class="card" onclick="openGallery('hamdi')"><img src="hamdi-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300?text=Hamdi'"><div class="card-info"><h3>Hamdi</h3><p>Youngest</p></div></div>
 </div></div></div>
 
-<div id="gallery"><div class="gal-head"><div class="gal-title" id="galleryTitle"></div><div class="gal-actions"><button class="upload-btn" id="uploadBtn">📤 Upload</button><button class="close-btn" onclick="closeGallery()">Close</button></div></div><div class="sub-nav" id="subNav"></div><div class="gal-grid" id="galleryGrid"></div></div>
+<div id="gallery"><div class="gal-head"><div class="gal-title" id="galleryTitle"></div><div><button class="upload-btn" id="uploadBtn">📤 Upload</button> <button class="close-btn" onclick="closeGallery()">Close</button></div></div><div class="sub-nav" id="subNav"></div><div class="gal-content" id="galleryContent"></div></div>
 
-<div class="pro-upload-overlay" id="proUpload"><div class="pro-upload-box"><div class="pro-upload-header"><h3>Upload to <span id="uploadAlbumName"></span></h3><span class="pro-close" onclick="closeProUpload()">&times;</span></div><div class="pro-dropzone" id="dropzone" onclick="document.getElementById('fileInput').click()"><div style="font-size:48px">📤</div><p><strong>Drag photos & videos here</strong></p><small>JPG, PNG, MP4, MOV</small><input type="file" id="fileInput" multiple accept="image/*,video/*" style="display:none"></div><div class="pro-file-list" id="fileList"></div><div class="pro-upload-footer"><div id="uploadInfo">Select files</div><div><button class="pro-btn pro-btn-cancel" onclick="closeProUpload()">Cancel</button> <button class="pro-btn pro-btn-upload" id="uploadBtnPro" disabled>Upload</button></div></div></div></div>
+<div class="pro-upload-overlay" id="proUpload"><div class="pro-upload-box"><div class="pro-upload-header"><h3>Upload to <span id="uploadAlbumName"></span></h3><span class="pro-close" onclick="closeProUpload()">&times;</span></div><div class="pro-dropzone" id="dropzone" onclick="fileInput.click()"><div style="font-size:48px">📤</div><p><strong>Drag photos & videos here</strong></p><input type="file" id="fileInput" multiple accept="image/*,video/*" style="display:none"></div><div class="pro-file-list" id="fileList"></div><div class="pro-upload-footer"><div id="uploadInfo">Select files</div><div><button class="pro-btn pro-btn-cancel" onclick="closeProUpload()">Cancel</button> <button class="pro-btn pro-btn-upload" id="uploadBtnPro" disabled>Upload</button></div></div></div></div>
 
 <script>
 const CORRECT_PASSWORD='Ayyar2026!';
 const galleries={
-  parents:{title:'Faisal & Amal',folder:'parents-photos'},
+  parents:{title:'Faisal & Amal',subcategories:[
+    {name:'Early Years',folder:'parents-photos/early'},
+    {name:'With Children',folder:'parents-photos/children'},
+    {name:'Family Gatherings',folder:'parents-photos/family'},
+    {name:'Grandparents',folder:'parents-photos/grandparents'}
+  ]},
   baida:{title:'Baida Al-Ayyar',subcategories:[
-    {name:'Childhood (Born-12)',folder:'baida-photos/childhood'},
+    {name:'Born to Childhood',folder:'baida-photos/born'},
     {name:'Teen Years',folder:'baida-photos/teen'},
     {name:'Wedding',folder:'baida-photos/wedding'},
-    {name:'Motherhood',folder:'baida-photos/motherhood'},
-    {name:'Family Videos',folder:'baida-photos/videos'}
+    {name:'Motherhood',folder:'baida-photos/motherhood'}
   ]},
   mubarak:{title:'Mubarak Al-Ayyar',subcategories:[
-    {name:'Childhood (Born-12)',folder:'mubarak-photos/childhood'},
+    {name:'Born to Childhood',folder:'mubarak-photos/born'},
     {name:'Teen Years',folder:'mubarak-photos/teen'},
     {name:'Wedding',folder:'mubarak-photos/wedding'},
-    {name:'Fatherhood',folder:'mubarak-photos/fatherhood'},
-    {name:'Family Videos',folder:'mubarak-photos/videos'}
+    {name:'Fatherhood',folder:'mubarak-photos/fatherhood'}
   ]},
-  hamdi:{title:'Hamdi',folder:'hamdi-photos'}
+  hamdi:{title:'Hamdi',subcategories:[
+    {name:'Childhood',folder:'hamdi-photos/childhood'},
+    {name:'Teen',folder:'hamdi-photos/teen'},
+    {name:'Today',folder:'hamdi-photos/today'}
+  ]}
 };
-let currentFolderPath='';
+let currentFolder='';
 
-function checkPassword(){if(document.getElementById('password').value===CORRECT_PASSWORD){gate.style.display='none';main.style.display='block';localStorage.alAyyarAuth='true'}else alert('Wrong')}
-if(localStorage.alAyyarAuth==='true'){gate.style.display='none';main.style.display='block'}
+function checkPassword(){if(password.value===CORRECT_PASSWORD){gate.style.display='none';main.style.display='block';localStorage.alAyyar='1'}else alert('Wrong')}
+if(localStorage.alAyyar) {gate.style.display='none';main.style.display='block'}
 
-function openGallery(k){const g=galleries[k];gallery.style.display='block';document.body.style.overflow='hidden';const nav=subNav;
- if(g.subcategories){nav.style.display='flex';nav.innerHTML='';g.subcategories.forEach((s,i)=>{const b=document.createElement('button');b.textContent=s.name;b.onclick=()=>{document.querySelectorAll('#subNav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');loadFolder(s.folder,g.title+' • '+s.name)};if(i===0)b.classList.add('active');nav.appendChild(b)});loadFolder(g.subcategories[0].folder,g.title+' • '+g.subcategories[0].name)}else{nav.style.display='none';loadFolder(g.folder,g.title)}}
+function openGallery(k){const g=galleries[k];gallery.style.display='block';document.body.style.overflow='hidden';subNav.innerHTML='';subNav.style.display='flex';
+ g.subcategories.forEach((s,i)=>{const b=document.createElement('button');b.textContent=s.name;b.onclick=()=>{document.querySelectorAll('#subNav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');loadPersonStage(s.folder,g.title+' • '+s.name)};if(i===0)b.classList.add('active');subNav.appendChild(b)});loadPersonStage(g.subcategories[0].folder,g.title+' • '+g.subcategories[0].name)}
 function closeGallery(){gallery.style.display='none';document.body.style.overflow='auto'}
-function loadFolder(folder,title){currentFolderPath=folder;galleryTitle.textContent=title;const grid=galleryGrid;grid.innerHTML='';let c=0;
- for(let i=1;i<=200;i++){['jpg','jpeg','png','JPG','PNG','webp'].forEach(e=>{const im=new Image();im.src=`${folder}/${i}.${e}`;im.loading='lazy';im.onload=()=>{c++;im.onclick=()=>window.open(im.src);grid.appendChild(im)}});['mp4','mov','MP4','MOV','webm'].forEach(e=>{const v=document.createElement('video');v.src=`${folder}/${i}.${e}`;v.controls=true;v.preload='metadata';v.onloadeddata=()=>{c++;grid.appendChild(v)}})}
- setTimeout(()=>{if(c===0)grid.innerHTML=`<div class="empty-state"><h3>No media yet</h3><p>Upload photos & videos to folder:<br><strong>${folder}</strong></p></div>`},2000)}
 
-let files=[];const dz=dropzone,fi=fileInput;
-uploadBtn.onclick=()=>{uploadAlbumName.textContent=galleryTitle.textContent;proUpload.style.display='flex';files=[];updateList()}
+function loadPersonStage(folder,title){
+ currentFolder=folder;galleryTitle.textContent=title;
+ galleryContent.innerHTML=`
+  <div class="media-section">
+    <h3>📸 PHOTOS</h3>
+    <div class="media-grid" id="photosGrid"><div class="empty-media">Loading photos...</div></div>
+  </div>
+  <div class="media-section">
+    <h3>🎬 VIDEOS</h3>
+    <div class="media-grid" id="videosGrid"><div class="empty-media">Loading videos...</div></div>
+  </div>`;
+
+ let photoCount=0,videoCount=0;
+ const pg=photosGrid, vg=videosGrid; pg.innerHTML=''; vg.innerHTML='';
+
+ for(let i=1;i<=200;i++){
+   ['jpg','jpeg','png','JPG','PNG','webp'].forEach(ext=>{
+     const img=new Image(); img.src=`${folder}/${i}.${ext}`; img.loading='lazy';
+     img.onload=()=>{photoCount++; img.onclick=()=>window.open(img.src,'_blank'); pg.appendChild(img)}
+   });
+   ['mp4','mov','MP4','MOV','webm'].forEach(ext=>{
+     const v=document.createElement('video'); v.src=`${folder}/${i}.${ext}`; v.controls=true; v.preload='metadata';
+     v.onloadeddata=()=>{videoCount++; vg.appendChild(v)}
+   });
+ }
+ setTimeout(()=>{if(photoCount===0)pg.innerHTML='<div class="empty-media">No photos yet in this stage</div>';if(videoCount===0)vg.innerHTML='<div class="empty-media">No videos yet in this stage</div>'},2000);
+}
+
+// UPLOAD
+let files=[]; uploadBtn.onclick=()=>{uploadAlbumName.textContent=galleryTitle.textContent;proUpload.style.display='flex';files=[];update()};
 function closeProUpload(){proUpload.style.display='none'}
-dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('dragover')});dz.addEventListener('dragleave',()=>dz.classList.remove('dragover'));dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('dragover');addFiles(e.dataTransfer.files)});fi.addEventListener('change',e=>addFiles(e.target.files))
-function addFiles(f){files=[...files,...f];updateList()}
-function updateList(){fileList.innerHTML='';let s=0;files.forEach((f,i)=>{s+=f.size;fileList.innerHTML+=`<div class="pro-file-item"><div class="pro-file-icon">${f.type.startsWith('video')?'🎬':'🖼️'}</div><div class="pro-file-info"><div class="pro-file-name">${f.name}</div><div class="pro-file-size">${(f.size/1024/1024).toFixed(1)}MB</div><div class="pro-progress"><div class="pro-progress-bar" id="p${i}"></div></div></div></div>`});uploadBtnPro.disabled=!files.length;uploadBtnPro.textContent=files.length?`Upload ${files.length}`:'Upload';uploadInfo.textContent=files.length?`${files.length} files • ${(s/1024/1024).toFixed(1)}MB`:'Select files'}
-uploadBtnPro.onclick=()=>{uploadBtnPro.disabled=true;files.forEach((_,i)=>{let w=0;const t=setInterval(()=>{w+=20;document.getElementById('p'+i).style.width=w+'%';if(w>=100)clearInterval(t)},70)});setTimeout(()=>{closeProUpload();window.open(`https://github.com/peterbelarmino/al-ayyar-clan/upload/main/${currentFolderPath}`,'_blank')},1000)}
+dropzone.addEventListener('dragover',e=>{e.preventDefault();dropzone.classList.add('dragover')});dropzone.addEventListener('dragleave',()=>dropzone.classList.remove('dragover'));dropzone.addEventListener('drop',e=>{e.preventDefault();dropzone.classList.remove('dragover');files=[...files,...e.dataTransfer.files];update()});fileInput.addEventListener('change',e=>{files=[...files,...e.target.files];update()});
+function update(){fileList.innerHTML='';let s=0;files.forEach(f=>{s+=f.size;fileList.innerHTML+=`<div class="pro-file-item"><div class="pro-file-icon">${f.type.startsWith('video')?'🎬':'🖼️'}</div><div><div style="font-size:14px">${f.name}</div><div style="font-size:12px;color:#999">${(f.size/1024/1024).toFixed(1)} MB</div></div></div>`});uploadBtnPro.disabled=!files.length;uploadInfo.textContent=files.length?`${files.length} files`:'Select files'}
+uploadBtnPro.onclick=()=>{closeProUpload();window.open(`https://github.com/peterbelarmino/al-ayyar-clan/upload/main/${currentFolder}`,'_blank')}
 </script>
 </body>
 </html>
