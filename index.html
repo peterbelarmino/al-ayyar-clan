@@ -2,189 +2,80 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Al-Ayyar Family • Private Archive</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Al-Ayyar Family Archive</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0f0e0c;--paper:#fefcf8;--gold:#c9a86a;--gold-dark:#9c7a3e;--ink:#1a1a1a;--muted:#7a756c}
+:root{
+  --bg:#fdf6e9; /* warm Arabic sand */
+  --gold:#c9a86b; /* royal gold */
+  --emerald:#0a5c48; /* Arabic green */
+  --burgundy:#8b1e3f; /* accent */
+  --border:#e8d9b5;
+  --dark:#2c2c2c
+}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--paper);overflow-x:hidden}
-/* LUXURY BACKGROUND */
-.bg-texture{position:fixed;inset:0;z-index:-2;background:
-  radial-gradient(1200px 800px at 80% -10%, rgba(201,168,106,.15), transparent 60%),
-  radial-gradient(1000px 600px at 10% 110%, rgba(201,168,106,.1), transparent 60%),
-  linear-gradient(180deg,#0f0e0c 0%,#15120e 100%)}
-.bg-grain{position:fixed;inset:0;z-index:-1;opacity:.035;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9Ii43IiBudW1PY3RhdmVzPSIzIiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI25vaXNlKSIgb3BhY2l0eT0iMSIvPjwvc3ZnPg==')}
-
-/* GATE */
-#gate{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:9999;background:rgba(0,0,0,.85);backdrop-filter:blur(12px)}
-.gate-card{background:rgba(254,252,248,.98);color:var(--ink);width:92%;max-width:420px;padding:56px 40px;border-radius:20px;box-shadow:0 30px 80px rgba(0,0,0,.5);text-align:center;border:1px solid rgba(201,168,106,.3)}
-.gate-card.crest{width:64px;height:64px;margin:0 auto 18px;border-radius:50%;background:linear-gradient(145deg,var(--gold),var(--gold-dark));display:grid;place-items:center;color:#fff;font-family:'Cormorant Garamond',serif;font-size:28px;box-shadow:0 8px 24px rgba(201,168,106,.4)}
-.gate-card h2{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--ink);margin-bottom:6px}
-.gate-card p{color:var(--muted);margin-bottom:28px}
-.gate-card input{width:100%;padding:16px 18px;border:1.5px solid #e8e2d5;border-radius:12px;font-size:16px;outline:none;transition:.2s;text-align:center;background:#fff}
-.gate-card input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(201,168,106,.15)}
-.gate-card button{width:100%;margin-top:14px;padding:16px;background:linear-gradient(145deg,var(--gold),var(--gold-dark));color:#fff;border:none;border-radius:12px;font-weight:500;cursor:pointer;transition:.2s;letter-spacing:.3px}
-.gate-card button:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(201,168,106,.35)}
-
-/* HERO */
-#main{display:none;animation:fadeIn.8s ease}
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.hero{min-height:88vh;display:grid;place-items:center;text-align:center;padding:80px 20px;position:relative}
-.hero-inner{max-width:900px}
-.eyebrow{letter-spacing:.3em;text-transform:uppercase;font-size:12px;color:var(--gold);margin-bottom:18px}
-.arabic{font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:var(--gold);margin-bottom:8px}
-.title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,5.5rem);line-height:.95;font-weight:700;background:linear-gradient(180deg,#fff 0%,#e8dcc2 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.gold-rule{width:120px;height:2px;margin:28px auto;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.subtitle{color:#c9c5bd;max-width:600px;margin:0 auto;font-size:17px;line-height:1.6}
-
-/* CARDS */
-.grid{max-width:1200px;margin:70px auto 0;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:28px}
-.card{position:relative;border-radius:20px;overflow:hidden;background:#14120f;border:1px solid rgba(201,168,106,.18);cursor:pointer;transition:.35s;isolation:isolate}
-.card::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.75));z-index:1}
-.card img{width:100%;height:340px;object-fit:cover;display:block;transition:transform.6s ease;filter:saturate(.9)}
-.card:hover img{transform:scale(1.06)}
-.card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.5);border-color:rgba(201,168,106,.4)}
-.card-info{position:absolute;bottom:0;left:0;right:0;padding:26px;z-index:2}
-.card-info h3{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:#fff;margin-bottom:4px}
-.card-info p{color:var(--gold);font-size:13px;letter-spacing:.08em;text-transform:uppercase}
-.card-badge{position:absolute;top:16px;right:16px;z-index:2;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);color:#fff;padding:6px 12px;border-radius:20px;font-size:11px;border:1px solid rgba(255,255,255,.15)}
-
-/* GALLERY */
-#gallery{position:fixed;inset:0;background:var(--paper);color:var(--ink);z-index:10000;display:none;overflow-y:auto}
-.gal-head{position:sticky;top:0;z-index:20;background:rgba(254,252,248,.85);backdrop-filter:blur(12px);padding:18px 28px;border-bottom:1px solid #e8e2d5;display:flex;justify-content:space-between;align-items:center}
-.gal-title{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--gold-dark);display:flex;align-items:center;gap:12px}
-.gal-title::before{content:'';width:6px;height:28px;background:var(--gold);border-radius:3px}
-.gal-actions{display:flex;gap:10px}
-.btn{padding:10px 18px;border-radius:10px;border:1px solid #e8e2d5;background:#fff;cursor:pointer;font-weight:500;transition:.2s}
-.btn-primary{background:var(--gold);color:#fff;border-color:var(--gold)}
-.btn:hover{transform:translateY(-1px)}
-.sub-nav{display:flex;gap:10px;padding:16px 28px;background:#fbf8f2;border-bottom:1px solid #efe9db;position:sticky;top:73px;z-index:19;overflow-x:auto}
-.sub-nav button{white-space:nowrap;padding:9px 18px;border-radius:30px;border:1px solid #e2d6bd;background:#fff;color:#5a5346;cursor:pointer;font-size:13px;transition:.2s}
-.sub-nav button.active,.sub-nav button:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
-.gal-content{max-width:1450px;margin:0 auto;padding:36px 28px}
-.section{margin-bottom:56px}
-.section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:18px}
-.section-head h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold-dark);display:flex;align-items:center;gap:10px}
-.count{font-size:12px;color:var(--muted);background:#f3ede1;padding:4px 10px;border-radius:20px}
-.masonry{columns:1 280px;column-gap:16px}
-@media(min-width:700px){.masonry{columns:2 300px}}
-@media(min-width:1100px){.masonry{columns:3 320px}}
-.tile{break-inside:avoid;margin-bottom:16px;border-radius:14px;overflow:hidden;background:#000;border:1px solid #e8e2d5;position:relative;cursor:pointer}
-.tile img,.tile video{width:100%;height:auto;display:block}
-.tile:hover::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.15)}
-.empty{padding:50px;text-align:center;color:var(--muted);background:#fbf8f2;border:1px dashed #e2d6bd;border-radius:14px}
-
-/* LIGHTBOX */
-#lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:20000;display:none;align-items:center;justify-content:center;padding:40px}
-#lightbox.active{display:flex}
-.lb-media{max-width:92vw;max-height:86vh;box-shadow:0 20px 80px rgba(0,0,0,.7);border-radius:8px}
-.lb-close{position:absolute;top:24px;right:28px;color:#fff;font-size:34px;cursor:pointer;opacity:.8}
-.lb-close:hover{opacity:1}
-
-/* UPLOAD */
-.pro-upload-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(10px);z-index:20000;display:none;align-items:center;justify-content:center;padding:20px}
-.pro-upload-box{background:#fff;color:var(--ink);width:100%;max-width:640px;border-radius:18px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
-.pro-upload-header{padding:24px 28px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
-.pro-upload-header h3{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--gold-dark)}
-.pro-close{font-size:28px;cursor:pointer;color:#999}
-.pro-dropzone{margin:28px;padding:56px 20px;border:2px dashed #d4c8b5;border-radius:14px;text-align:center;background:#fdfaf5;cursor:pointer;transition:.2s}
-.pro-dropzone.dragover{border-color:var(--gold);background:#fff7e5}
-.pro-file-list{padding:0 28px 20px;max-height:240px;overflow-y:auto}
-.pro-file-item{display:flex;gap:12px;padding:12px;background:#f9f6ef;margin-bottom:8px;border-radius:10px}
-.pro-file-icon{width:40px;height:40px;background:var(--gold);color:#fff;display:grid;place-items:center;border-radius:8px}
-.pro-upload-footer{padding:18px 28px;background:#fbf8f2;display:flex;justify-content:space-between;align-items:center}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(201,168,107,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(10,92,72,0.06) 0%, transparent 50%);
+  color:var(--dark)
+}
+#gate{position:fixed;inset:0;background:linear-gradient(135deg, #fdf6e9 0%, #f5e9c9 100%);display:flex;align-items:center;justify-content:center;z-index:9999}
+.gate-box{background:#fffef9;padding:50px 40px;border:2px solid var(--gold);text-align:center;width:90%;max-width:380px;box-shadow:0 20px 60px rgba(201,168,107,0.2);border-radius:12px}
+.gate-box h2{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--emerald);margin-bottom:8px}
+.gate-box input{width:100%;padding:14px;border:2px solid var(--border);text-align:center;font-size:16px;margin:15px 0;border-radius:8px;background:#fffef9}
+.gate-box button{width:100%;padding:14px;background:linear-gradient(135deg, var(--gold), #d4b876);color:#fff;border:none;cursor:pointer;font-weight:600;border-radius:8px;font-size:16px}
+#main{display:none}.container{max-width:1100px;margin:0 auto;padding:70px 20px;text-align:center}
+.arabic{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--emerald);text-shadow:0 2px 4px rgba(0,0,0,0.1)}
+.main-title{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:700;color:var(--burgundy);letter-spacing:2px}
+.gold-line{width:100px;height:3px;background:linear-gradient(90deg, var(--gold), var(--emerald));margin:25px auto;border-radius:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;margin-top:70px}
+.card{background:#fffef9;border:2px solid var(--border);cursor:pointer;transition:.3s;overflow:hidden;border-radius:12px;box-shadow:0 8px 25px rgba(201,168,107,0.15)}
+.card:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(201,168,107,0.25);border-color:var(--gold)}
+.card img{width:100%;height:220px;object-fit:cover;background:linear-gradient(135deg, #f5e9c9, #e8d9b5)}
+.card-info{padding:24px}.card-info h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--emerald);margin-bottom:6px}.card-info p{color:var(--gold);font-size:14px;font-weight:500}
+#gallery{position:fixed;inset:0;background:var(--bg);z-index:10000;display:none;overflow-y:auto}
+.gal-head{position:sticky;top:0;background:linear-gradient(135deg, #fffef9 0%, #fdf6e9 100%);padding:22px 30px;border-bottom:2px solid var(--gold);display:flex;justify-content:space-between;align-items:center;z-index:10;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+.gal-title{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--emerald)}
+.upload-btn{background:linear-gradient(135deg, var(--emerald), #0d7a5f);color:#fff;border:none;padding:12px 22px;cursor:pointer;border-radius:8px;font-weight:600}.close-btn{background:var(--burgundy);color:#fff;border:none;padding:12px 22px;cursor:pointer;border-radius:8px;font-weight:600}
+.sub-nav{display:none;padding:18px 30px;background:linear-gradient(135deg, #fff8e8 0%, #fdf6e9 100%);border-bottom:2px solid var(--border);gap:12px;flex-wrap:wrap;position:sticky;top:81px;z-index:9}
+.sub-nav button{padding:10px 22px;border:2px solid var(--border);background:#fffef9;cursor:pointer;border-radius:25px;font-size:14px;font-weight:500;color:var(--dark);transition:.2s}.sub-nav button.active,.sub-nav button:hover{background:linear-gradient(135deg, var(--gold), #d4b876);color:#fff;border-color:var(--gold);transform:translateY(-2px)}
+.gal-content{padding:40px 30px;max-width:1400px;margin:0 auto}
+.media-section{margin-bottom:60px}.media-section h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--emerald);margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--gold);display:flex;align-items:center;gap:12px}
+.media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.media-grid img,.media-grid video{width:100%;height:280px;object-fit:cover;border:3px solid #fff;cursor:pointer;border-radius:12px;box-shadow:0 8px 25px rgba(0,0,0,0.12);transition:.3s;background:linear-gradient(135deg, var(--emerald), var(--gold))}
+.media-grid img:hover,.media-grid video:hover{transform:scale(1.03);box-shadow:0 12px 35px rgba(201,168,107,0.3)}
+.media-grid video{background:linear-gradient(135deg, #0a5c48 0%, #c9a86b 100%)}
+.empty-media{color:var(--gold);font-style:italic;padding:50px;text-align:center;background:linear-gradient(135deg, #fff8e8, #fdf6e9);border-radius:12px;grid-column:1/-1;border:2px dashed var(--border);font-size:16px}
+.loading{grid-column:1/-1;text-align:center;padding:50px;color:var(--emerald);font-size:18px;font-weight:500}
 </style>
 </head>
 <body>
-<div class="bg-texture"></div><div class="bg-grain"></div>
+<!-- rest of HTML same as before -->
+<div id="gate"><div class="gate-box"><h2>Al-Ayyar Archive</h2><p style="color:#8b7355;margin-bottom:20px">Private Family Collection</p><input type="password" id="password" placeholder="Enter password" onkeypress="if(event.key==='Enter')checkPassword()"><button onclick="checkPassword()">Enter Archive</button></div></div>
 
-<div id="gate"><div class="gate-card">
-  <div class="crest">ع</div>
-  <h2>Al-Ayyar Archive</h2>
-  <p>Est. 1985 • Private Family Collection</p>
-  <input type="password" id="password" placeholder="Enter password" onkeypress="if(event.key==='Enter')checkPassword()">
-  <button onclick="checkPassword()">Enter Archive</button>
-</div></div>
+<div id="main"><div class="container">
+<div class="arabic">عائلة العيار</div><h1 class="main-title">AL-AYYAR FAMILY</h1><div class="gold-line"></div>
+<div class="grid">
+<div class="card" onclick="openGallery('parents')"><img src="https://raw.githubusercontent.com/peterbelarmino/al-ayyar-clan/main/parents-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300/c9a86b/ffffff?text=Parents'"><div class="card-info"><h3>Faisal & Amal</h3><p>Parents</p></div></div>
+<div class="card" onclick="openGallery('baida')"><img src="https://raw.githubusercontent.com/peterbelarmino/al-ayyar-clan/main/baida-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300/0a5c48/ffffff?text=Baida'"><div class="card-info"><h3>Baida</h3><p>Born to Motherhood</p></div></div>
+<div class="card" onclick="openGallery('mubarak')"><img src="https://raw.githubusercontent.com/peterbelarmino/al-ayyar-clan/main/mubarak-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300/8b1e3f/ffffff?text=Mubarak'"><div class="card-info"><h3>Mubarak</h3><p>Born to Fatherhood</p></div></div>
+<div class="card" onclick="openGallery('hamdi')"><img src="https://raw.githubusercontent.com/peterbelarmino/al-ayyar-clan/main/hamdi-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300/c9a86b/ffffff?text=Hamdi'"><div class="card-info"><h3>Hamdi</h3><p>Youngest</p></div></div>
+</div></div></div>
 
-<div id="main">
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="eyebrow">Private Family Legacy</div>
-      <div class="arabic">عائلة العيار</div>
-      <h1 class="title">AL-AYYAR</h1>
-      <div class="gold-rule"></div>
-      <p class="subtitle">A curated visual history from birth to parenthood. Preserving four decades of memories across generations — photographs and films, organized by life stage.</p>
-    </div>
-  </section>
-
-  <div class="grid">
-    <div class="card" onclick="openGallery('parents')">
-      <span class="card-badge">1985–Present</span>
-      <img src="https://raw.githubusercontent.com/peterbelarmino/al-ayyar-clan/main/parents-photos/cover.jpg" onerror="this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800'">
-      <div class="card-info"><h3>Faisal & Amal</h3><p>Parents • Founders of the Line</p></div>
-    </div>
-    <div class="card" onclick="openGallery('baida')">
-      <span class="card-badge">Born 1988</span>
-      <img src="https://raw.githubusercontent.com/peterbelarmino/al-ayyar-clan/main/baida-photos/cover.jpg" onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800'">
-      <div class="card-info"><h3>Baida</h3><p>Born → Childhood → Motherhood</p></div>
-    </div>
-    <div class="card" onclick="openGallery('mubarak')">
-      <span class="card-badge">Born 1990</span>
-      <img src="https://raw.githubusercontent.com/peterbelarmino/al-ayyar-clan/main/mubarak-photos/cover.jpg" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800'">
-      <div class="card-info"><h3>Mubarak</h3><p>Born → Childhood → Fatherhood</p></div>
-    </div>
-    <div class="card" onclick="openGallery('hamdi')">
-      <span class="card-badge">Born 1995</span>
-      <img src="https://raw.githubusercontent.com/peterbelarmino/al-ayyar-clan/main/hamdi-photos/cover.jpg" onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800'">
-      <div class="card-info"><h3>Hamdi</h3><p>Youngest • Present Day</p></div>
-    </div>
-  </div>
-  <div style="height:120px"></div>
-</div>
-
-<div id="gallery">
-  <div class="gal-head">
-    <div class="gal-title" id="galleryTitle"></div>
-    <div class="gal-actions">
-      <button class="btn btn-primary" id="uploadBtn">Upload Media</button>
-      <button class="btn" onclick="closeGallery()">Close</button>
-    </div>
-  <div class="sub-nav" id="subNav"></div>
-  <div class="gal-content" id="galleryContent"></div>
-</div>
-
-<div id="lightbox" onclick="closeLightbox()"><span class="lb-close">&times;</span><img id="lbImg" class="lb-media" style="display:none"><video id="lbVid" class="lb-media" controls style="display:none"></video></div>
-
-<div class="pro-upload-overlay" id="proUpload"><div class="pro-upload-box">
-  <div class="pro-upload-header"><h3>Upload to <span id="uploadAlbumName"></span></h3><span class="pro-close" onclick="closeProUpload()">&times;</span></div>
-  <div class="pro-dropzone" id="dropzone" onclick="fileInput.click()"><div style="font-size:44px;margin-bottom:10px">⬆</div><p><strong>Drop photos & videos</strong></p><p style="color:#777;font-size:13px">or click to browse</p><input type="file" id="fileInput" multiple accept="image/*,video/*" style="display:none"></div>
-  <div class="pro-file-list" id="fileList"></div>
-  <div class="pro-upload-footer"><div id="uploadInfo" style="color:#666;font-size:13px">Select files</div><div><button class="btn" onclick="closeProUpload()">Cancel</button> <button class="btn btn-primary" id="uploadBtnPro" disabled>Upload</button></div></div>
-</div></div>
+<div id="gallery"><div class="gal-head"><div class="gal-title" id="galleryTitle"></div><div><button class="upload-btn" id="uploadBtn">📤 Upload</button> <button class="close-btn" onclick="closeGallery()">Close</button></div></div><div class="sub-nav" id="subNav"></div><div class="gal-content" id="galleryContent"></div></div>
 
 <script>
-const P='Ayyar2026!', REPO='peterbelarmino/al-ayyar-clan';
-const galleries={
-  parents:{title:'Faisal & Amal',subs:[['Early Years','parents-photos/early'],['With Children','parents-photos/children'],['Family Gatherings','parents-photos/family'],['Grandparents','parents-photos/grandparents']]},
-  baida:{title:'Baida Al-Ayyar',subs:[['Born to Childhood','baida-photos/born'],['Teen Years','baida-photos/teen'],['Wedding','baida-photos/wedding'],['Motherhood','baida-photos/motherhood']]},
-  mubarak:{title:'Mubarak Al-Ayyar',subs:[['Born to Childhood','mubarak-photos/born'],['Teen Years','mubarak-photos/teen'],['Wedding','mubarak-photos/wedding'],['Fatherhood','mubarak-photos/fatherhood']]},
-  hamdi:{title:'Hamdi',subs:[['Childhood','hamdi-photos/childhood'],['Teen','hamdi-photos/teen'],['Today','hamdi-photos/today']]}
-};
-let curFolder='';
-function checkPassword(){if(password.value===P){gate.style.display='none';main.style.display='block';localStorage.ay='1'}else{password.style.borderColor='red';setTimeout(()=>password.style.borderColor='#e8e2d5',800)}}
-if(localStorage.ay){gate.style.display='none';main.style.display='block'}
-
-function openGallery(k){const g=galleries[k];gallery.style.display='block';document.body.style.overflow='hidden';subNav.innerHTML='';g.subs.forEach(([name,fold],i)=>{const b=document.createElement('button');b.textContent=name;b.onclick=()=>{document.querySelectorAll('#subNav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');loadStage(fold,`${g.title} • ${name}`)};if(i===0)b.classList.add('active');subNav.appendChild(b)});loadStage(g.subs[0][1],`${g.title} • ${g.subs[0][0]}`)}
+const CORRECT_PASSWORD='Ayyar2026!';
+const REPO='peterbelarmino/al-ayyar-clan';
+const galleries={parents:{title:'Faisal & Amal',subcategories:[{name:'Early Years',folder:'parents-photos/early'},{name:'With Children',folder:'parents-photos/children'},{name:'Family Gatherings',folder:'parents-photos/family'},{name:'Grandparents',folder:'parents-photos/grandparents'}]},baida:{title:'Baida Al-Ayyar',subcategories:[{name:'Born to Childhood',folder:'baida-photos/born'},{name:'Teen Years',folder:'baida-photos/teen'},{name:'Wedding',folder:'baida-photos/wedding'},{name:'Motherhood',folder:'baida-photos/motherhood'}]},mubarak:{title:'Mubarak Al-Ayyar',subcategories:[{name:'Born to Childhood',folder:'mubarak-photos/born'},{name:'Teen Years',folder:'mubarak-photos/teen'},{name:'Wedding',folder:'mubarak-photos/wedding'},{name:'Fatherhood',folder:'mubarak-photos/fatherhood'}]},hamdi:{title:'Hamdi',subcategories:[{name:'Childhood',folder:'hamdi-photos/childhood'},{name:'Teen',folder:'hamdi-photos/teen'},{name:'Today',folder:'hamdi-photos/today'}]}};
+let currentFolder='';function checkPassword(){if(password.value===CORRECT_PASSWORD){gate.style.display='none';main.style.display='block';localStorage.alAyyar='1'}else alert('Wrong')}if(localStorage.alAyyar){gate.style.display='none';main.style.display='block'}
+function openGallery(k){const g=galleries[k];gallery.style.display='block';document.body.style.overflow='hidden';subNav.innerHTML='';subNav.style.display='flex';g.subcategories.forEach((s,i)=>{const b=document.createElement('button');b.textContent=s.name;b.onclick=()=>{document.querySelectorAll('#subNav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');loadPersonStage(s.folder,g.title+' • '+s.name)};if(i===0)b.classList.add('active');subNav.appendChild(b)});loadPersonStage(g.subcategories[0].folder,g.title+' • '+g.subcategories[0].name)}
 function closeGallery(){gallery.style.display='none';document.body.style.overflow='auto'}
-
-async function loadStage(folder,title){curFolder=folder;galleryTitle.textContent=title;galleryContent.innerHTML=`<div class="section"><div class="section-head"><h3>📸 Photographs</h3><span class="count" id="pCount">—</span></div><div class="masonry" id="pGrid"><div class="empty">Loading...</div></div></div><div class="section"><div class="section-head"><h3>🎬 Films</h3><span class="count" id="vCount">—</span></div><div class="masonry" id="vGrid"><div class="empty">Loading...</div></div></div>`;
- try{const r=await fetch(`https://api.github.com/repos/${REPO}/contents/${folder}`);if(!r.ok)throw 0;const files=await r.json();const photos=files.filter(f=>/\.(jpg|jpeg|png|webp)$/i.test(f.name)).sort((a,b)=>a.name.localeCompare(b.name));const videos=files.filter(f=>/\.(mp4|mov|webm)$/i.test(f.name)).sort((a,b)=>a.name.localeCompare(b.name));pCount.textContent=`${photos.length} items`;vCount.textContent=`${videos.length} items`;pGrid.innerHTML=photos.length? '': '<div class="empty">No photographs in this chapter yet</div>';vGrid.innerHTML=videos.length? '': '<div class="empty">No films in this chapter yet</div>';photos.forEach(f=>{const d=document.createElement('div');d.className='tile';d.innerHTML=`<img src="${f.download_url}" loading="lazy">`;d.onclick=()=>openLightbox('img',f.download_url);pGrid.appendChild(d)});videos.forEach(f=>{const d=document.createElement('div');d.className='tile';d.innerHTML=`<video src="${f.download_url}" preload="metadata" muted></video>`;d.onclick=()=>openLightbox('vid',f.download_url);vGrid.appendChild(d)});}catch{ pGrid.innerHTML='<div class="empty">Create folder in GitHub: '+folder+'</div>';vGrid.innerHTML='<div class="empty">Create folder in GitHub: '+folder+'</div>';}}
-
-function openLightbox(type,src){lightbox.classList.add('active');if(type==='img'){lbImg.style.display='block';lbVid.style.display='none';lbImg.src=src}else{lbVid.style.display='block';lbImg.style.display='none';lbVid.src=src;lbVid.play()}}
-function closeLightbox(){lightbox.classList.remove('active');lbVid.pause();lbVid.src='';lbImg.src=''}
-
-// Upload
-let files=[];uploadBtn.onclick=()=>{uploadAlbumName.textContent=galleryTitle.textContent;proUpload.style.display='flex';files=[];updateUp()};function closeProUpload(){proUpload.style.display='none'};dropzone.ondragover=e=>{e.preventDefault();dropzone.classList.add('dragover')};dropzone.ondragleave=()=>dropzone.classList.remove('dragover');dropzone.ondrop=e=>{e.preventDefault();dropzone.classList.remove('dragover');files=[...files,...e.dataTransfer.files];updateUp()};fileInput.onchange=e=>{files=[...files,...e.target.files];updateUp()};function updateUp(){fileList.innerHTML='';let s=0;files.forEach(f=>{s+=f.size;fileList.innerHTML+=`<div class="pro-file-item"><div class="pro-file-icon">${f.type.startsWith('video')?'🎬':'📷'}</div><div><div style="font-weight:500;font-size:14px">${f.name}</div><div style="font-size:12px;color:#777">${(f.size/1024/1024).toFixed(1)} MB</div></div></div>`});uploadBtnPro.disabled=!files.length;uploadInfo.textContent=files.length?`${files.length} files • ${(s/1024/1024).toFixed(1)} MB`:'Select files'};uploadBtnPro.onclick=()=>{closeProUpload();window.open(`https://github.com/${REPO}/upload/main/${curFolder}`,'_blank')}
+async function loadPersonStage(folder,title){currentFolder=folder;galleryTitle.textContent=title;galleryContent.innerHTML=`<div class="media-section"><h3>📸 PHOTOS</h3><div class="media-grid" id="photosGrid"><div class="loading">Loading...</div></div></div><div class="media-section"><h3>🎬 VIDEOS</h3><div class="media-grid" id="videosGrid"><div class="loading">Loading...</div></div></div>`;try{const res=await fetch(`https://api.github.com/repos/${REPO}/contents/${folder}`);if(!res.ok)throw new Error();const files=await res.json();const photos=files.filter(f=>/\.(jpg|jpeg|png|webp|gif)$/i.test(f.name));const videos=files.filter(f=>/\.(mp4|mov|webm)$/i.test(f.name));const pg=document.getElementById('photosGrid'),vg=document.getElementById('videosGrid');pg.innerHTML='';vg.innerHTML='';if(!photos.length)pg.innerHTML='<div class="empty-media">No photos yet</div>';else photos.forEach(f=>{const i=new Image();i.src=f.download_url;i.loading='lazy';i.onclick=()=>window.open(f.download_url);pg.appendChild(i)});if(!videos.length)vg.innerHTML='<div class="empty-media">No videos yet</div>';else videos.forEach(f=>{const v=document.createElement('video');v.src=f.download_url;v.controls=true;v.preload='metadata';vg.appendChild(v)})}catch(e){document.getElementById('photosGrid').innerHTML='<div class="empty-media">Create folder first</div>';document.getElementById('videosGrid').innerHTML='<div class="empty-media">Create folder first</div>'}}
+document.getElementById('uploadBtn').onclick=()=>window.open(`https://github.com/${REPO}/upload/main/${currentFolder}`,'_blank');
 </script>
 </body>
 </html>
