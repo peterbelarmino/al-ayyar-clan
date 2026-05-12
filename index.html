@@ -31,7 +31,8 @@
 .media-section{margin-bottom:50px}.media-section h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold);margin-bottom:15px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
 .media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:15px}
 .media-grid img,.media-grid video{width:100%;height:250px;object-fit:cover;border:1px solid var(--border);cursor:pointer;background:#000}
-.empty-media{color:#999;font-style:italic;padding:20px;text-align:center;background:#f9f7f3;border-radius:6px}
+.empty-media{color:#999;font-style:italic;padding:40px;text-align:center;background:#f9f7f3;border-radius:6px;grid-column:1/-1}
+.loading{grid-column:1/-1;text-align:center;padding:40px;color:var(--gold)}
 .pro-upload-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);z-index:20000;display:none;align-items:center;justify-content:center;padding:20px}
 .pro-upload-box{background:#fff;width:100%;max-width:620px;border-radius:12px;overflow:hidden}
 .pro-upload-header{padding:24px 30px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between}
@@ -53,10 +54,10 @@
 <div id="main"><div class="container">
 <div class="arabic">عائلة العيار</div><h1 class="main-title">AL-AYYAR FAMILY</h1><div class="gold-line"></div>
 <div class="grid">
-<div class="card" onclick="openGallery('parents')"><img src="parents-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300?text=Parents'"><div class="card-info"><h3>Faisal & Amal</h3><p>Parents</p></div></div>
-<div class="card" onclick="openGallery('baida')"><img src="baida-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300?text=Baida'"><div class="card-info"><h3>Baida</h3><p>Born to Motherhood</p></div></div>
-<div class="card" onclick="openGallery('mubarak')"><img src="mubarak-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300?text=Mubarak'"><div class="card-info"><h3>Mubarak</h3><p>Born to Fatherhood</p></div></div>
-<div class="card" onclick="openGallery('hamdi')"><img src="hamdi-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300?text=Hamdi'"><div class="card-info"><h3>Hamdi</h3><p>Youngest</p></div></div>
+<div class="card" onclick="openGallery('parents')"><img src="https://raw.githubusercontent.com/peterbelarmino/al-ayyar-clan/main/parents-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300?text=Parents'"><div class="card-info"><h3>Faisal & Amal</h3><p>Parents</p></div></div>
+<div class="card" onclick="openGallery('baida')"><img src="https://raw.githubusercontent.com/peterbelarmino/al-ayyar-clan/main/baida-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300?text=Baida'"><div class="card-info"><h3>Baida</h3><p>Born to Motherhood</p></div></div>
+<div class="card" onclick="openGallery('mubarak')"><img src="https://raw.githubusercontent.com/peterbelarmino/al-ayyar-clan/main/mubarak-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300?text=Mubarak'"><div class="card-info"><h3>Mubarak</h3><p>Born to Fatherhood</p></div></div>
+<div class="card" onclick="openGallery('hamdi')"><img src="https://raw.githubusercontent.com/peterbelarmino/al-ayyar-clan/main/hamdi-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300?text=Hamdi'"><div class="card-info"><h3>Hamdi</h3><p>Youngest</p></div></div>
 </div></div></div>
 
 <div id="gallery"><div class="gal-head"><div class="gal-title" id="galleryTitle"></div><div><button class="upload-btn" id="uploadBtn">📤 Upload</button> <button class="close-btn" onclick="closeGallery()">Close</button></div></div><div class="sub-nav" id="subNav"></div><div class="gal-content" id="galleryContent"></div></div>
@@ -65,6 +66,7 @@
 
 <script>
 const CORRECT_PASSWORD='Ayyar2026!';
+const REPO='peterbelarmino/al-ayyar-clan';
 const galleries={
   parents:{title:'Faisal & Amal',subcategories:[
     {name:'Early Years',folder:'parents-photos/early'},
@@ -93,38 +95,39 @@ const galleries={
 let currentFolder='';
 
 function checkPassword(){if(password.value===CORRECT_PASSWORD){gate.style.display='none';main.style.display='block';localStorage.alAyyar='1'}else alert('Wrong')}
-if(localStorage.alAyyar) {gate.style.display='none';main.style.display='block'}
+if(localStorage.alAyyar){gate.style.display='none';main.style.display='block'}
 
 function openGallery(k){const g=galleries[k];gallery.style.display='block';document.body.style.overflow='hidden';subNav.innerHTML='';subNav.style.display='flex';
  g.subcategories.forEach((s,i)=>{const b=document.createElement('button');b.textContent=s.name;b.onclick=()=>{document.querySelectorAll('#subNav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');loadPersonStage(s.folder,g.title+' • '+s.name)};if(i===0)b.classList.add('active');subNav.appendChild(b)});loadPersonStage(g.subcategories[0].folder,g.title+' • '+g.subcategories[0].name)}
 function closeGallery(){gallery.style.display='none';document.body.style.overflow='auto'}
 
-function loadPersonStage(folder,title){
+async function loadPersonStage(folder,title){
  currentFolder=folder;galleryTitle.textContent=title;
  galleryContent.innerHTML=`
-  <div class="media-section">
-    <h3>📸 PHOTOS</h3>
-    <div class="media-grid" id="photosGrid"><div class="empty-media">Loading photos...</div></div>
-  </div>
-  <div class="media-section">
-    <h3>🎬 VIDEOS</h3>
-    <div class="media-grid" id="videosGrid"><div class="empty-media">Loading videos...</div></div>
-  </div>`;
+  <div class="media-section"><h3>📸 PHOTOS</h3><div class="media-grid" id="photosGrid"><div class="loading">Loading photos...</div></div></div>
+  <div class="media-section"><h3>🎬 VIDEOS</h3><div class="media-grid" id="videosGrid"><div class="loading">Loading videos...</div></div></div>`;
 
- let photoCount=0,videoCount=0;
- const pg=photosGrid, vg=videosGrid; pg.innerHTML=''; vg.innerHTML='';
+ try{
+  const res=await fetch(`https://api.github.com/repos/${REPO}/contents/${folder}`);
+  if(!res.ok) throw new Error('Folder not found');
+  const files=await res.json();
 
- for(let i=1;i<=200;i++){
-   ['jpg','jpeg','png','JPG','PNG','webp'].forEach(ext=>{
-     const img=new Image(); img.src=`${folder}/${i}.${ext}`; img.loading='lazy';
-     img.onload=()=>{photoCount++; img.onclick=()=>window.open(img.src,'_blank'); pg.appendChild(img)}
-   });
-   ['mp4','mov','MP4','MOV','webm'].forEach(ext=>{
-     const v=document.createElement('video'); v.src=`${folder}/${i}.${ext}`; v.controls=true; v.preload='metadata';
-     v.onloadeddata=()=>{videoCount++; vg.appendChild(v)}
-   });
+  const photos=files.filter(f=>/\.(jpg|jpeg|png|webp|gif)$/i.test(f.name));
+  const videos=files.filter(f=>/\.(mp4|mov|webm|avi)$/i.test(f.name));
+
+  const pg=document.getElementById('photosGrid'), vg=document.getElementById('videosGrid');
+  pg.innerHTML=''; vg.innerHTML='';
+
+  if(photos.length===0) pg.innerHTML='<div class="empty-media">No photos yet in this stage</div>';
+  else photos.forEach(f=>{const img=new Image();img.src=f.download_url;img.loading='lazy';img.onclick=()=>window.open(f.download_url,'_blank');pg.appendChild(img)});
+
+  if(videos.length===0) vg.innerHTML='<div class="empty-media">No videos yet in this stage</div>';
+  else videos.forEach(f=>{const v=document.createElement('video');v.src=f.download_url;v.controls=true;v.preload='metadata';vg.appendChild(v)});
+
+ }catch(e){
+  document.getElementById('photosGrid').innerHTML='<div class="empty-media">Create this folder in GitHub first</div>';
+  document.getElementById('videosGrid').innerHTML='<div class="empty-media">Create this folder in GitHub first</div>';
  }
- setTimeout(()=>{if(photoCount===0)pg.innerHTML='<div class="empty-media">No photos yet in this stage</div>';if(videoCount===0)vg.innerHTML='<div class="empty-media">No videos yet in this stage</div>'},2000);
 }
 
 // UPLOAD
@@ -132,7 +135,7 @@ let files=[]; uploadBtn.onclick=()=>{uploadAlbumName.textContent=galleryTitle.te
 function closeProUpload(){proUpload.style.display='none'}
 dropzone.addEventListener('dragover',e=>{e.preventDefault();dropzone.classList.add('dragover')});dropzone.addEventListener('dragleave',()=>dropzone.classList.remove('dragover'));dropzone.addEventListener('drop',e=>{e.preventDefault();dropzone.classList.remove('dragover');files=[...files,...e.dataTransfer.files];update()});fileInput.addEventListener('change',e=>{files=[...files,...e.target.files];update()});
 function update(){fileList.innerHTML='';let s=0;files.forEach(f=>{s+=f.size;fileList.innerHTML+=`<div class="pro-file-item"><div class="pro-file-icon">${f.type.startsWith('video')?'🎬':'🖼️'}</div><div><div style="font-size:14px">${f.name}</div><div style="font-size:12px;color:#999">${(f.size/1024/1024).toFixed(1)} MB</div></div></div>`});uploadBtnPro.disabled=!files.length;uploadInfo.textContent=files.length?`${files.length} files`:'Select files'}
-uploadBtnPro.onclick=()=>{closeProUpload();window.open(`https://github.com/peterbelarmino/al-ayyar-clan/upload/main/${currentFolder}`,'_blank')}
+uploadBtnPro.onclick=()=>{closeProUpload();window.open(`https://github.com/${REPO}/upload/main/${currentFolder}`,'_blank')}
 </script>
 </body>
 </html>
