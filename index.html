@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Al-Ayyar Family Archive</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fefcf8;--gold:#b8860b;--border:#e8e2d5}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:#1a1a1a}
+#gate{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:999}
+.gate-box{background:#fff;padding:50px;border:1px solid var(--border);text-align:center;width:90%;max-width:400px;box-shadow:0 10px 30px rgba(0,0,0,.05)}
+.gate-box h2{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);margin-bottom:10px}
+.gate-box input{width:100%;padding:14px;margin:20px 0;border:1px solid var(--border);text-align:center;font-size:16px}
+.gate-box button{width:100%;padding:14px;background:var(--gold);color:#fff;border:none;font-size:16px;cursor:pointer}
+.error{color:#c00;font-size:14px;margin-top:10px;display:none}
+.container{max-width:1100px;margin:0 auto;padding:60px 20px;text-align:center;display:none}
+h1{font-family:'Cormorant Garamond',serif;font-size:3.2rem;margin-bottom:10px}
+.subtitle{color:#666;margin-bottom:50px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px;margin-top:40px}
+.card{background:#fff;border:1px solid var(--border);padding:40px 20px;cursor:pointer;transition:.3s}
+.card:hover{transform:translateY(-5px);box-shadow:0 12px 25px rgba(0,0,0,.07);border-color:var(--gold)}
+.card h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold);margin-bottom:8px}
+.card p{color:#666;font-size:14px}
+footer{margin-top:80px;padding-top:30px;border-top:1px solid var(--border);color:#999;font-size:13px}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="gate-box">
+    <h2>Al-Ayyar Archive</h2>
+    <p>Private Family Collection</p>
+    <input type="password" id="pw" placeholder="Enter password">
+    <button onclick="login()">Enter Archive</button>
+    <div class="error" id="err">Incorrect password</div>
+  </div>
+</div>
+
+<div class="container" id="main">
+  <h1>Faisal & Amal Al-Ayyar</h1>
+  <p class="subtitle">Core Family • Est. 1985 Kuwait</p>
+  
+  <div class="grid">
+    <div class="card" onclick="alert('Upload photos to folder: parents-photos')">
+      <h3>Faisal & Amal</h3>
+      <p>Parents</p>
+    </div>
+    <div class="card" onclick="alert('Upload photos to folder: baida-photos')">
+      <h3>Baida</h3>
+      <p>Daughter • with family</p>
+    </div>
+    <div class="card" onclick="alert('Upload photos to folder: mubarak-photos')">
+      <h3>Mubarak</h3>
+      <p>Son • with family</p>
+    </div>
+    <div class="card" onclick="alert('Upload photos to folder: hamdi-photos')">
+      <h3>Hamdi</h3>
+      <p>Son</p>
+    </div>
+  </div>
+  
+  <footer>Password: Ayyar2026! • Private Archive</footer>
+</div>
+
+<script>
+const PASS='Ayyar2026!';
+function login(){
+  if(document.getElementById('pw').value===PASS){
+    document.getElementById('gate').style.display='none';
+    document.getElementById('main').style.display='block';
+    localStorage.setItem('auth','1');
+  }else{
+    document.getElementById('err').style.display='block';
+  }
+}
+if(localStorage.getItem('auth')==='1'){
+  document.getElementById('gate').style.display='none';
+  document.getElementById('main').style.display='block';
+}
+document.getElementById('pw').addEventListener('keypress',e=>{if(e.key==='Enter')login()});
+</script>
+</body>
+</html>
