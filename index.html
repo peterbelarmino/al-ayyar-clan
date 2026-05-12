@@ -5,77 +5,60 @@
 <title>Al-Ayyar Family Archive</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#fdf6e9; /* warm Arabic sand */
-  --gold:#c9a86b; /* royal gold */
-  --emerald:#0a5c48; /* Arabic green */
-  --burgundy:#8b1e3f; /* accent */
-  --border:#e8d9b5;
-  --dark:#2c2c2c
-}
+:root{--bg:#fdf6e9;--gold:#c9a86b;--emerald:#0a5c48;--burgundy:#8b1e3f;--border:#e8d9b5;--dark:#2c2c2c}
 *{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:'Inter',sans-serif;
-  background:var(--bg);
-  background-image:
-    radial-gradient(circle at 20% 20%, rgba(201,168,107,0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(10,92,72,0.06) 0%, transparent 50%);
-  color:var(--dark)
-}
+body{font-family:'Inter',sans-serif;background:var(--bg);background-image:radial-gradient(circle at 20% 20%, rgba(201,168,107,0.08) 0%, transparent 50%),radial-gradient(circle at 80% 80%, rgba(10,92,72,0.06) 0%, transparent 50%);color:var(--dark)}
 #gate{position:fixed;inset:0;background:linear-gradient(135deg, #fdf6e9 0%, #f5e9c9 100%);display:flex;align-items:center;justify-content:center;z-index:9999}
 .gate-box{background:#fffef9;padding:50px 40px;border:2px solid var(--gold);text-align:center;width:90%;max-width:380px;box-shadow:0 20px 60px rgba(201,168,107,0.2);border-radius:12px}
 .gate-box h2{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--emerald);margin-bottom:8px}
 .gate-box input{width:100%;padding:14px;border:2px solid var(--border);text-align:center;font-size:16px;margin:15px 0;border-radius:8px;background:#fffef9}
-.gate-box button{width:100%;padding:14px;background:linear-gradient(135deg, var(--gold), #d4b876);color:#fff;border:none;cursor:pointer;font-weight:600;border-radius:8px;font-size:16px}
+.gate-box button{width:100%;padding:14px;background:linear-gradient(135deg, var(--gold), #d4b876);color:#fff;border:none;cursor:pointer;font-weight:600;border-radius:8px}
 #main{display:none}.container{max-width:1100px;margin:0 auto;padding:70px 20px;text-align:center}
-.arabic{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--emerald);text-shadow:0 2px 4px rgba(0,0,0,0.1)}
+.arabic{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--emerald)}
 .main-title{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:700;color:var(--burgundy);letter-spacing:2px}
 .gold-line{width:100px;height:3px;background:linear-gradient(90deg, var(--gold), var(--emerald));margin:25px auto;border-radius:2px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;margin-top:70px}
 .card{background:#fffef9;border:2px solid var(--border);cursor:pointer;transition:.3s;overflow:hidden;border-radius:12px;box-shadow:0 8px 25px rgba(201,168,107,0.15)}
 .card:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(201,168,107,0.25);border-color:var(--gold)}
 .card img{width:100%;height:220px;object-fit:cover;background:linear-gradient(135deg, #f5e9c9, #e8d9b5)}
-.card-info{padding:24px}.card-info h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--emerald);margin-bottom:6px}.card-info p{color:var(--gold);font-size:14px;font-weight:500}
+.card-info{padding:24px}.card-info h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--emerald);margin-bottom:6px}.card-info p{color:var(--gold);font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
 #gallery{position:fixed;inset:0;background:var(--bg);z-index:10000;display:none;overflow-y:auto}
-.gal-head{position:sticky;top:0;background:linear-gradient(135deg, #fffef9 0%, #fdf6e9 100%);padding:22px 30px;border-bottom:2px solid var(--gold);display:flex;justify-content:space-between;align-items:center;z-index:10;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+.gal-head{position:sticky;top:0;background:linear-gradient(135deg, #fffef9 0%, #fdf6e9 100%);padding:22px 30px;border-bottom:2px solid var(--gold);display:flex;justify-content:space-between;align-items:center;z-index:10}
 .gal-title{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--emerald)}
 .upload-btn{background:linear-gradient(135deg, var(--emerald), #0d7a5f);color:#fff;border:none;padding:12px 22px;cursor:pointer;border-radius:8px;font-weight:600}.close-btn{background:var(--burgundy);color:#fff;border:none;padding:12px 22px;cursor:pointer;border-radius:8px;font-weight:600}
 .sub-nav{display:none;padding:18px 30px;background:linear-gradient(135deg, #fff8e8 0%, #fdf6e9 100%);border-bottom:2px solid var(--border);gap:12px;flex-wrap:wrap;position:sticky;top:81px;z-index:9}
-.sub-nav button{padding:10px 22px;border:2px solid var(--border);background:#fffef9;cursor:pointer;border-radius:25px;font-size:14px;font-weight:500;color:var(--dark);transition:.2s}.sub-nav button.active,.sub-nav button:hover{background:linear-gradient(135deg, var(--gold), #d4b876);color:#fff;border-color:var(--gold);transform:translateY(-2px)}
+.sub-nav button{padding:10px 22px;border:2px solid var(--border);background:#fffef9;cursor:pointer;border-radius:25px;font-size:14px;font-weight:500;transition:.2s}.sub-nav button.active,.sub-nav button:hover{background:linear-gradient(135deg, var(--gold), #d4b876);color:#fff;border-color:var(--gold)}
 .gal-content{padding:40px 30px;max-width:1400px;margin:0 auto}
 .media-section{margin-bottom:60px}.media-section h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--emerald);margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--gold);display:flex;align-items:center;gap:12px}
 .media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
 .media-grid img,.media-grid video{width:100%;height:280px;object-fit:cover;border:3px solid #fff;cursor:pointer;border-radius:12px;box-shadow:0 8px 25px rgba(0,0,0,0.12);transition:.3s;background:linear-gradient(135deg, var(--emerald), var(--gold))}
 .media-grid img:hover,.media-grid video:hover{transform:scale(1.03);box-shadow:0 12px 35px rgba(201,168,107,0.3)}
-.media-grid video{background:linear-gradient(135deg, #0a5c48 0%, #c9a86b 100%)}
-.empty-media{color:var(--gold);font-style:italic;padding:50px;text-align:center;background:linear-gradient(135deg, #fff8e8, #fdf6e9);border-radius:12px;grid-column:1/-1;border:2px dashed var(--border);font-size:16px}
-.loading{grid-column:1/-1;text-align:center;padding:50px;color:var(--emerald);font-size:18px;font-weight:500}
+.empty-media{color:var(--gold);font-style:italic;padding:50px;text-align:center;background:linear-gradient(135deg, #fff8e8, #fdf6e9);border-radius:12px;grid-column:1/-1;border:2px dashed var(--border)}
 </style>
 </head>
 <body>
-<!-- rest of HTML same as before -->
-<div id="gate"><div class="gate-box"><h2>Al-Ayyar Archive</h2><p style="color:#8b7355;margin-bottom:20px">Private Family Collection</p><input type="password" id="password" placeholder="Enter password" onkeypress="if(event.key==='Enter')checkPassword()"><button onclick="checkPassword()">Enter Archive</button></div></div>
+<div id="gate"><div class="gate-box"><h2>Al-Ayyar Archive</h2><p style="color:#8b7355">Private Family Collection</p><input type="password" id="password" placeholder="Enter password" onkeypress="if(event.key==='Enter')checkPassword()"><button onclick="checkPassword()">Enter</button></div></div>
 
 <div id="main"><div class="container">
 <div class="arabic">عائلة العيار</div><h1 class="main-title">AL-AYYAR FAMILY</h1><div class="gold-line"></div>
 <div class="grid">
-<div class="card" onclick="openGallery('parents')"><img src="https://raw.githubusercontent.com/peterbelarmino/al-ayyar-clan/main/parents-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300/c9a86b/ffffff?text=Parents'"><div class="card-info"><h3>Faisal & Amal</h3><p>Parents</p></div></div>
-<div class="card" onclick="openGallery('baida')"><img src="https://raw.githubusercontent.com/peterbelarmino/al-ayyar-clan/main/baida-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300/0a5c48/ffffff?text=Baida'"><div class="card-info"><h3>Baida</h3><p>Born to Motherhood</p></div></div>
-<div class="card" onclick="openGallery('mubarak')"><img src="https://raw.githubusercontent.com/peterbelarmino/al-ayyar-clan/main/mubarak-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300/8b1e3f/ffffff?text=Mubarak'"><div class="card-info"><h3>Mubarak</h3><p>Born to Fatherhood</p></div></div>
+<div class="card" onclick="openGallery('parents')"><img src="https://raw.githubusercontent.com/peterbelarmino/al-ayyar-clan/main/parents-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300/c9a86b/ffffff?text=Faisal+Amal'"><div class="card-info"><h3>Faisal & Amal</h3><p>Parents</p></div></div>
+<div class="card" onclick="openGallery('baida')"><img src="https://raw.githubusercontent.com/peterbelarmino/al-ayyar-clan/main/baida-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300/0a5c48/ffffff?text=Baida'"><div class="card-info"><h3>Baida</h3><p>Eldest Daughter</p></div></div>
+<div class="card" onclick="openGallery('mubarak')"><img src="https://raw.githubusercontent.com/peterbelarmino/al-ayyar-clan/main/mubarak-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300/8b1e3f/ffffff?text=Mubarak'"><div class="card-info"><h3>Mubarak</h3><p>Second Son</p></div></div>
 <div class="card" onclick="openGallery('hamdi')"><img src="https://raw.githubusercontent.com/peterbelarmino/al-ayyar-clan/main/hamdi-photos/cover.jpg" onerror="this.src='https://via.placeholder.com/400x300/c9a86b/ffffff?text=Hamdi'"><div class="card-info"><h3>Hamdi</h3><p>Youngest</p></div></div>
 </div></div></div>
 
 <div id="gallery"><div class="gal-head"><div class="gal-title" id="galleryTitle"></div><div><button class="upload-btn" id="uploadBtn">📤 Upload</button> <button class="close-btn" onclick="closeGallery()">Close</button></div></div><div class="sub-nav" id="subNav"></div><div class="gal-content" id="galleryContent"></div></div>
 
 <script>
-const CORRECT_PASSWORD='Ayyar2026!';
-const REPO='peterbelarmino/al-ayyar-clan';
-const galleries={parents:{title:'Faisal & Amal',subcategories:[{name:'Early Years',folder:'parents-photos/early'},{name:'With Children',folder:'parents-photos/children'},{name:'Family Gatherings',folder:'parents-photos/family'},{name:'Grandparents',folder:'parents-photos/grandparents'}]},baida:{title:'Baida Al-Ayyar',subcategories:[{name:'Born to Childhood',folder:'baida-photos/born'},{name:'Teen Years',folder:'baida-photos/teen'},{name:'Wedding',folder:'baida-photos/wedding'},{name:'Motherhood',folder:'baida-photos/motherhood'}]},mubarak:{title:'Mubarak Al-Ayyar',subcategories:[{name:'Born to Childhood',folder:'mubarak-photos/born'},{name:'Teen Years',folder:'mubarak-photos/teen'},{name:'Wedding',folder:'mubarak-photos/wedding'},{name:'Fatherhood',folder:'mubarak-photos/fatherhood'}]},hamdi:{title:'Hamdi',subcategories:[{name:'Childhood',folder:'hamdi-photos/childhood'},{name:'Teen',folder:'hamdi-photos/teen'},{name:'Today',folder:'hamdi-photos/today'}]}};
-let currentFolder='';function checkPassword(){if(password.value===CORRECT_PASSWORD){gate.style.display='none';main.style.display='block';localStorage.alAyyar='1'}else alert('Wrong')}if(localStorage.alAyyar){gate.style.display='none';main.style.display='block'}
-function openGallery(k){const g=galleries[k];gallery.style.display='block';document.body.style.overflow='hidden';subNav.innerHTML='';subNav.style.display='flex';g.subcategories.forEach((s,i)=>{const b=document.createElement('button');b.textContent=s.name;b.onclick=()=>{document.querySelectorAll('#subNav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');loadPersonStage(s.folder,g.title+' • '+s.name)};if(i===0)b.classList.add('active');subNav.appendChild(b)});loadPersonStage(g.subcategories[0].folder,g.title+' • '+g.subcategories[0].name)}
+const P='Ayyar2026!',R='peterbelarmino/al-ayyar-clan';
+const G={parents:{t:'Faisal & Amal',s:[['Early Years','parents-photos/early'],['With Children','parents-photos/children'],['Family','parents-photos/family'],['Grandparents','parents-photos/grandparents']]},baida:{t:'Baida',s:[['Born to Childhood','baida-photos/born'],['Teen Years','baida-photos/teen'],['Wedding','baida-photos/wedding'],['Motherhood','baida-photos/motherhood']]},mubarak:{t:'Mubarak',s:[['Born to Childhood','mubarak-photos/born'],['Teen Years','mubarak-photos/teen'],['Wedding','mubarak-photos/wedding'],['Fatherhood','mubarak-photos/fatherhood']]},hamdi:{t:'Hamdi',s:[['Childhood','hamdi-photos/childhood'],['Teen','hamdi-photos/teen'],['Today','hamdi-photos/today']]}};
+let cur='';
+function checkPassword(){if(password.value===P){gate.style.display='none';main.style.display='block';localStorage.a='1'}else alert('Wrong')}if(localStorage.a){gate.style.display='none';main.style.display='block'}
+function openGallery(k){const g=G[k];gallery.style.display='block';document.body.style.overflow='hidden';subNav.innerHTML='';subNav.style.display='flex';g.s.forEach(([n,f],i)=>{const b=document.createElement('button');b.textContent=n;b.onclick=()=>{document.querySelectorAll('#subNav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');load(f,`${g.t} • ${n}`)};if(!i)b.classList.add('active');subNav.appendChild(b)});load(g.s[0][1],`${g.t} • ${g.s[0][0]}`)}
 function closeGallery(){gallery.style.display='none';document.body.style.overflow='auto'}
-async function loadPersonStage(folder,title){currentFolder=folder;galleryTitle.textContent=title;galleryContent.innerHTML=`<div class="media-section"><h3>📸 PHOTOS</h3><div class="media-grid" id="photosGrid"><div class="loading">Loading...</div></div></div><div class="media-section"><h3>🎬 VIDEOS</h3><div class="media-grid" id="videosGrid"><div class="loading">Loading...</div></div></div>`;try{const res=await fetch(`https://api.github.com/repos/${REPO}/contents/${folder}`);if(!res.ok)throw new Error();const files=await res.json();const photos=files.filter(f=>/\.(jpg|jpeg|png|webp|gif)$/i.test(f.name));const videos=files.filter(f=>/\.(mp4|mov|webm)$/i.test(f.name));const pg=document.getElementById('photosGrid'),vg=document.getElementById('videosGrid');pg.innerHTML='';vg.innerHTML='';if(!photos.length)pg.innerHTML='<div class="empty-media">No photos yet</div>';else photos.forEach(f=>{const i=new Image();i.src=f.download_url;i.loading='lazy';i.onclick=()=>window.open(f.download_url);pg.appendChild(i)});if(!videos.length)vg.innerHTML='<div class="empty-media">No videos yet</div>';else videos.forEach(f=>{const v=document.createElement('video');v.src=f.download_url;v.controls=true;v.preload='metadata';vg.appendChild(v)})}catch(e){document.getElementById('photosGrid').innerHTML='<div class="empty-media">Create folder first</div>';document.getElementById('videosGrid').innerHTML='<div class="empty-media">Create folder first</div>'}}
-document.getElementById('uploadBtn').onclick=()=>window.open(`https://github.com/${REPO}/upload/main/${currentFolder}`,'_blank');
+async function load(folder,title){cur=folder;galleryTitle.textContent=title;galleryContent.innerHTML=`<div class="media-section"><h3>📸 PHOTOS</h3><div class="media-grid" id="pg"><div class="empty-media">Loading...</div></div></div><div class="media-section"><h3>🎬 VIDEOS</h3><div class="media-grid" id="vg"><div class="empty-media">Loading...</div></div></div>`;try{const r=await fetch(`https://api.github.com/repos/${R}/contents/${folder}`);if(!r.ok)throw 0;const files=await r.json();const p=files.filter(f=>/\.(jpg|jpeg|png|webp)$/i.test(f.name)),v=files.filter(f=>/\.(mp4|mov|webm)$/i.test(f.name));pg.innerHTML='';vg.innerHTML='';if(!p.length)pg.innerHTML='<div class="empty-media">No photos yet</div>';else p.forEach(f=>{const i=new Image();i.src=f.download_url;i.loading='lazy';i.onclick=()=>window.open(f.download_url);pg.appendChild(i)});if(!v.length)vg.innerHTML='<div class="empty-media">No videos yet</div>';else v.forEach(f=>{const e=document.createElement('video');e.src=f.download_url;e.controls=true;e.preload='metadata';vg.appendChild(e)})}catch{pg.innerHTML=vg.innerHTML='<div class="empty-media">Create folder in GitHub</div>'}}
+uploadBtn.onclick=()=>window.open(`https://github.com/${R}/upload/main/${cur}`,'_blank');
 </script>
 </body>
 </html>
