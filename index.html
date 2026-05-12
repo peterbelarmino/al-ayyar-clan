@@ -6,45 +6,27 @@
     <title>Al-Ayyar Family</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         body {
             font-family: 'Segoe UI', Tahoma, sans-serif;
             background: #FDF6E3;
             color: #1E293B;
             line-height: 1.6;
         }
-        
-        /* HEADER */
         header {
             background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%);
             color: white;
             padding: 25px 20px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
             text-align: center;
         }
-        .header-content h1 {
-            font-size: 2.5em;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
-        .header-content p {
-            color: #DBEAFE;
-            font-size: 1.1em;
-        }
-        
-        /* NAV */
+        header h1 { font-size: 2.5em; font-weight: 700; margin-bottom: 5px; }
+        header p { color: #DBEAFE; font-size: 1.1em; }
         nav {
             background: #D4AF37;
             padding: 15px 20px;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         nav ul {
             max-width: 1200px;
@@ -63,31 +45,15 @@
             border-radius: 6px;
             transition: all 0.3s;
         }
-        nav a:hover {
-            background: #1E3A8A;
-            color: #D4AF37;
-        }
-        
-        /* HERO */
+        nav a:hover { background: #1E3A8A; color: #D4AF37; }
         .hero {
-            background: linear-gradient(rgba(30,58,138,0.8), rgba(30,64,175,0.8)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23FED7AA" width="1200" height="600"/></svg>');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(rgba(30,58,138,0.8), rgba(30,64,175,0.8));
             color: white;
             padding: 100px 20px;
             text-align: center;
         }
-        .hero h2 {
-            font-size: 3em;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-        .hero p {
-            font-size: 1.3em;
-            margin-bottom: 30px;
-            color: #FEF3C7;
-        }
+        .hero h2 { font-size: 3em; margin-bottom: 15px; }
+        .hero p { font-size: 1.3em; margin-bottom: 30px; color: #FEF3C7; }
         .btn {
             display: inline-block;
             background: #D4AF37;
@@ -97,14 +63,7 @@
             text-decoration: none;
             font-weight: 700;
             font-size: 1.1em;
-            transition: transform 0.2s;
         }
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212,175,55,0.4);
-        }
-        
-        /* SECTIONS */
         .section {
             max-width: 1200px;
             margin: 60px auto;
@@ -115,8 +74,8 @@
             font-size: 2.5em;
             color: #1E3A8A;
             margin-bottom: 15px;
-            position: relative;
             padding-bottom: 15px;
+            position: relative;
         }
         .section-title::after {
             content: '';
@@ -127,7 +86,6 @@
             width: 80px;
             height: 4px;
             background: #D4AF37;
-            border-radius: 2px;
         }
         .section-subtitle {
             text-align: center;
@@ -135,8 +93,6 @@
             margin-bottom: 40px;
             font-size: 1.1em;
         }
-        
-        /* GALLERY */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -147,11 +103,6 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
-        }
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
         .gallery-img {
             width: 100%;
@@ -169,8 +120,6 @@
             color: #475569;
             font-weight: 500;
         }
-        
-        /* VIDEO SECTION */
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -192,19 +141,9 @@
             color: #D4AF37;
             font-size: 3em;
         }
-        .video-info {
-            padding: 20px;
-        }
-        .video-info h3 {
-            color: #1E3A8A;
-            margin-bottom: 8px;
-        }
-        .video-info p {
-            color: #64748B;
-            font-size: 0.95em;
-        }
-        
-        /* FAMILY TREE */
+        .video-info { padding: 20px; }
+        .video-info h3 { color: #1E3A8A; margin-bottom: 8px; }
+        .video-info p { color: #64748B; font-size: 0.95em; }
         .tree-container {
             background: white;
             border-radius: 16px;
@@ -228,49 +167,6 @@
             background: #D4AF37;
             margin: 0 auto;
         }
-        
-        /* EVENTS */
-        .events-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .event-card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-            border-left: 5px solid #D4AF37;
-            display: flex;
-            gap: 25px;
-            align-items: center;
-        }
-        .event-date {
-            background: #1E3A8A;
-            color: #D4AF37;
-            padding: 15px 20px;
-            border-radius: 10px;
-            text-align: center;
-            min-width: 80px;
-        }
-        .event-date .day {
-            font-size: 2em;
-            font-weight: 700;
-            line-height: 1;
-        }
-        .event-date .month {
-            font-size: 0.9em;
-            text-transform: uppercase;
-        }
-        .event-details h3 {
-            color: #1E3A8A;
-            margin-bottom: 5px;
-        }
-        .event-details p {
-            color: #64748B;
-        }
-        
-        /* ABOUT */
         .about-content {
             background: white;
             border-radius: 16px;
@@ -280,11 +176,6 @@
             line-height: 1.8;
             color: #475569;
         }
-        .about-content p {
-            margin-bottom: 20px;
-        }
-        
-        /* FOOTER */
         footer {
             background: #1E3A8A;
             color: #DBEAFE;
@@ -292,29 +183,18 @@
             padding: 40px 20px;
             margin-top: 80px;
         }
-        footer p {
-            margin: 8px 0;
-        }
-        .footer-gold {
-            color: #D4AF37;
-            font-weight: 600;
-        }
-        
-        /* RESPONSIVE */
+        .footer-gold { color: #D4AF37; font-weight: 600; }
         @media (max-width: 768px) {
             .hero h2 { font-size: 2em; }
             .section-title { font-size: 2em; }
             nav ul { gap: 15px; }
-            .event-card { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="header-content">
-            <h1>Al-Ayyar Family</h1>
-            <p>Our Legacy, Our Memories, Our Future</p>
-        </div>
+        <h1>Al-Ayyar Family</h1>
+        <p>Our Legacy, Our Memories, Our Future</p>
     </header>
     
     <nav>
@@ -323,7 +203,6 @@
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#videos">Videos</a></li>
             <li><a href="#tree">Family Tree</a></li>
-            <li><a href="#events">Events</a></li>
             <li><a href="#about">About</a></li>
         </ul>
     </nav>
@@ -339,27 +218,15 @@
         <p class="section-subtitle">Captured moments through the years</p>
         <div class="gallery">
             <div class="gallery-item">
-                <div class="gallery-img">Replace with Photo</div>
+                <div class="gallery-img">Upload Photo 1</div>
                 <div class="gallery-caption">Family Gathering 2024</div>
             </div>
             <div class="gallery-item">
-                <div class="gallery-img">Replace with Photo</div>
+                <div class="gallery-img">Upload Photo 2</div>
                 <div class="gallery-caption">Eid Celebration</div>
             </div>
             <div class="gallery-item">
-                <div class="gallery-img">Replace with Photo</div>
-                <div class="gallery-caption">Grandparents' Wedding</div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-img">Replace with Photo</div>
-                <div class="gallery-caption">Children's Day</div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-img">Replace with Photo</div>
-                <div class="gallery-caption">Travel Memories</div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-img">Replace with Photo</div>
+                <div class="gallery-img">Upload Photo 3</div>
                 <div class="gallery-caption">Graduation Day</div>
             </div>
         </div>
@@ -375,19 +242,11 @@
                     <h3>Family Reunion 2023</h3>
                     <p>The whole Al-Ayyar family gathered in Al `Abbasiyah</p>
                 </div>
-            </div>
             <div class="video-card">
                 <div class="video-thumbnail">▶</div>
                 <div class="video-info">
                     <h3>Wedding Celebration</h3>
                     <p>Beautiful moments from the wedding ceremony</p>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">▶</div>
-                <div class="video-info">
-                    <h3>Old Home Videos</h3>
-                    <p>Precious footage from the 1990s</p>
                 </div>
             </div>
         </div>
@@ -410,53 +269,16 @@
                 <div class="tree-box">Siblings</div>
                 <div class="tree-box">Cousins</div>
             </div>
-            <p style="margin-top:30px; color:#64748B;">Edit mo to para match sa actual family tree niyo</p>
-        </div>
-    </section>
-    
-    <section class="section" id="events">
-        <h2 class="section-title">Events & Milestones</h2>
-        <p class="section-subtitle">Upcoming gatherings and cherished memories</p>
-        <div class="events-list">
-            <div class="event-card">
-                <div class="event-date">
-                    <div class="day">15</div>
-                    <div class="month">JUN</div>
-                </div>
-                <div class="event-details">
-                    <h3>Annual Family Gathering</h3>
-                    <p>Join us at the family home in Al `Abbasiyah for our yearly reunion</p>
-                </div>
-            </div>
-            <div class="event-card">
-                <div class="event-date">
-                    <div class="day">20</div>
-                    <div class="month">DEC</div>
-                </div>
-                <div class="event-details">
-                    <h3>Grandfather's Birthday</h3>
-                    <p>Celebrating 80 wonderful years of life and wisdom</p>
-                </div>
-            </div>
+            <p style="margin-top:30px; color:#64748B;">Edit this sa GitHub para match sa actual family tree niyo</p>
         </div>
     </section>
     
     <section class="section" id="about">
         <h2 class="section-title">About the Al-Ayyar Family</h2>
         <div class="about-content">
-            <p>
-                Welcome to the digital home of the Al-Ayyar Family. We are proud to share our heritage, 
-                memories, and stories with family members across the world.
-            </p>
-            <p>
-                This website serves as our digital archive — a place where photos, videos, and stories 
-                from every generation are preserved. From our roots in Al `Abbasiyah, Farwaniya to wherever 
-                life has taken us, we remain connected through our shared history.
-            </p>
-            <p>
-                <strong>Edit this section</strong> to tell your family's unique story. Include where you're from, 
-                family values, traditions, and what makes the Al-Ayyar family special.
-            </p>
+            <p>Welcome to the digital home of the Al-Ayyar Family. We are proud to share our heritage, memories, and stories with family members across the world.</p>
+            <p>This website serves as our digital archive — a place where photos, videos, and stories from every generation are preserved. From our roots in Al `Abbasiyah, Farwaniya to wherever life has taken us, we remain connected through our shared history.</p>
+            <p><strong>Edit this section sa GitHub</strong> to tell your family's unique story.</p>
         </div>
     </section>
     
