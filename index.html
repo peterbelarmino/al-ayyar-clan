@@ -1,85 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Al-Ayyar Family Archive</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#fefcf8;--gold:#b8860b;--border:#e8e2d5}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:#1a1a1a}
-#gate{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:999}
-.gate-box{background:#fff;padding:50px;border:1px solid var(--border);text-align:center;width:90%;max-width:400px;box-shadow:0 10px 30px rgba(0,0,0,.05)}
-.gate-box h2{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);margin-bottom:10px}
-.gate-box input{width:100%;padding:14px;margin:20px 0;border:1px solid var(--border);text-align:center;font-size:16px}
-.gate-box button{width:100%;padding:14px;background:var(--gold);color:#fff;border:none;font-size:16px;cursor:pointer}
-.error{color:#c00;font-size:14px;margin-top:10px;display:none}
-.container{max-width:1100px;margin:0 auto;padding:60px 20px;text-align:center;display:none}
-h1{font-family:'Cormorant Garamond',serif;font-size:3.2rem;margin-bottom:10px}
-.subtitle{color:#666;margin-bottom:50px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px;margin-top:40px}
-.card{background:#fff;border:1px solid var(--border);padding:40px 20px;cursor:pointer;transition:.3s}
-.card:hover{transform:translateY(-5px);box-shadow:0 12px 25px rgba(0,0,0,.07);border-color:var(--gold)}
-.card h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold);margin-bottom:8px}
-.card p{color:#666;font-size:14px}
-footer{margin-top:80px;padding-top:30px;border-top:1px solid var(--border);color:#999;font-size:13px}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',sans-serif;background:var(--bg)}
+#gate{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:9999}
+.gate-box{background:#fff;padding:50px;border:1px solid var(--border);text-align:center;width:90%;max-width:400px}
+.gate-box h2{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold)}
+.gate-box input{width:100%;padding:14px;margin:20px 0;border:1px solid var(--border);text-align:center}
+.gate-box button{width:100%;padding:14px;background:var(--gold);color:#fff;border:none;cursor:pointer}
+.container{max-width:1200px;margin:0 auto;padding:60px 20px;text-align:center;display:none}
+h1{font-family:'Cormorant Garamond',serif;font-size:3.2rem}.subtitle{color:#666;margin:10px 0 50px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px}
+.card{background:#fff;border:1px solid var(--border);cursor:pointer;transition:.3s;overflow:hidden}
+.card:hover{transform:translateY(-5px);box-shadow:0 12px 25px rgba(0,0,0,.08)}
+.card img,.card video{width:100%;height:200px;object-fit:cover;display:block}
+.card-info{padding:20px}.card-info h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold)}
+#gallery{position:fixed;inset:0;background:rgba(254,252,248,.98);z-index:10000;display:none;overflow-y:auto}
+.gal-head{position:sticky;top:0;background:var(--bg);padding:20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between}
+.gal-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem}.close{background:var(--gold);color:#fff;border:none;padding:10px 20px;cursor:pointer}
+.gal-grid{padding:30px;max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:15px}
+.gal-grid img,.gal-grid video{width:100%;height:250px;object-fit:cover;border:1px solid var(--border);background:#000}
 </style>
 </head>
 <body>
-
-<div id="gate">
-  <div class="gate-box">
-    <h2>Al-Ayyar Archive</h2>
-    <p>Private Family Collection</p>
-    <input type="password" id="pw" placeholder="Enter password">
-    <button onclick="login()">Enter Archive</button>
-    <div class="error" id="err">Incorrect password</div>
-  </div>
-</div>
+<div id="gate"><div class="gate-box"><h2>Al-Ayyar Archive</h2><input type="password" id="pw" placeholder="Password"><button onclick="login()">Enter</button></div></div>
 
 <div class="container" id="main">
-  <h1>Faisal & Amal Al-Ayyar</h1>
-  <p class="subtitle">Core Family • Est. 1985 Kuwait</p>
-  
-  <div class="grid">
-    <div class="card" onclick="alert('Upload photos to folder: parents-photos')">
-      <h3>Faisal & Amal</h3>
-      <p>Parents</p>
-    </div>
-    <div class="card" onclick="alert('Upload photos to folder: baida-photos')">
-      <h3>Baida</h3>
-      <p>Daughter • with family</p>
-    </div>
-    <div class="card" onclick="alert('Upload photos to folder: mubarak-photos')">
-      <h3>Mubarak</h3>
-      <p>Son • with family</p>
-    </div>
-    <div class="card" onclick="alert('Upload photos to folder: hamdi-photos')">
-      <h3>Hamdi</h3>
-      <p>Son</p>
-    </div>
-  </div>
-  
-  <footer>Password: Ayyar2026! • Private Archive</footer>
-</div>
+<h1>Faisal & Amal Al-Ayyar</h1><p class="subtitle">Core Family • Est. 1985 Kuwait</p>
+<div class="grid">
+<div class="card" onclick="openGal('parents')"><img src="parents-photos/1.jpg" onerror="this.src='parents-photos/1.mp4'"><div class="card-info"><h3>Faisal & Amal</h3></div></div>
+<div class="card" onclick="openGal('baida')"><img src="baida-photos/1.jpg" onerror="this.src='baida-photos/1.mp4'"><div class="card-info"><h3>Baida</h3></div></div>
+<div class="card" onclick="openGal('mubarak')"><img src="mubarak-photos/1.jpg" onerror="this.src='mubarak-photos/1.mp4'"><div class="card-info"><h3>Mubarak</h3></div></div>
+<div class="card" onclick="openGal('hamdi')"><img src="hamdi-photos/1.jpg" onerror="this.src='hamdi-photos/1.mp4'"><div class="card-info"><h3>Hamdi</h3></div></div>
+</div></div>
+
+<div id="gallery"><div class="gal-head"><div class="gal-title" id="gt"></div><button class="close" onclick="closeGal()">Close</button></div><div class="gal-grid" id="gg"></div></div>
 
 <script>
 const PASS='Ayyar2026!';
-function login(){
-  if(document.getElementById('pw').value===PASS){
-    document.getElementById('gate').style.display='none';
-    document.getElementById('main').style.display='block';
-    localStorage.setItem('auth','1');
-  }else{
-    document.getElementById('err').style.display='block';
-  }
-}
-if(localStorage.getItem('auth')==='1'){
-  document.getElementById('gate').style.display='none';
-  document.getElementById('main').style.display='block';
-}
-document.getElementById('pw').addEventListener('keypress',e=>{if(e.key==='Enter')login()});
+function login(){if(pw.value===PASS){gate.style.display='none';main.style.display='block';localStorage.a=1}}if(localStorage.a==='1'){gate.style.display='none';main.style.display='block'}
+const G={parents:{t:'Faisal & Amal',f:'parents-photos',c:100},baida:{t:'Baida',f:'baida-photos',c:100},mubarak:{t:'Mubarak',f:'mubarak-photos',c:100},hamdi:{t:'Hamdi',f:'hamdi-photos',c:100}};
+function openGal(k){const g=G[k];gt.textContent=g.t;gg.innerHTML='';for(let i=1;i<=g.c;i++){
+let img=document.createElement('img');img.src=`${g.f}/${i}.jpg`;img.onerror=()=>img.remove();gg.appendChild(img);
+let img2=document.createElement('img');img2.src=`${g.f}/${i}.png`;img2.onerror=()=>img2.remove();gg.appendChild(img2);
+let vid=document.createElement('video');vid.src=`${g.f}/${i}.mp4`;vid.controls=true;vid.onerror=()=>vid.remove();gg.appendChild(vid);
+}gallery.style.display='block'}
+function closeGal(){gallery.style.display='none'}
 </script>
 </body>
 </html>
